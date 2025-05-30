@@ -5,30 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mobilní bankovnictví</title>
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
     }
 
     img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
+      width: 2828px; /* přesná šířka tvého obrázku */
+      height: auto;
       display: block;
     }
   </style>
-
-  <!-- knihovna pro responzivní mapu -->
-  <script src="https://unpkg.com/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
 </head>
 <body>
 
   <img src="mobilni-bankovnictvi.jpg" usemap="#mapa" id="mainImage">
 
   <map name="mapa">
-    <!-- přesné umístění na tlačítku „Historie“ pod EUR -->
+    <!-- oblast jen na tlačítko Historie -->
     <area shape="rect" coords="1050,490,1150,530" href="#" title="Historie EUR" onclick="changeImage('vypis.jpg'); return false;">
   </map>
 
@@ -36,10 +33,6 @@
     function changeImage(newSrc) {
       document.getElementById("mainImage").src = newSrc;
     }
-
-    window.onload = () => {
-      imageMapResize();
-    };
   </script>
 
 </body>
