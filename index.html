@@ -12,33 +12,34 @@
     }
 
     #mainImage {
-      width: 2828px;
+      width: 2828px; /* zůstává přesně tak, jak jsi měl */
       height: auto;
       display: block;
       margin: 0 auto;
     }
 
-    .fixed-container {
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: start;
+    body.scrollable {
+      overflow-y: auto;
+      height: auto;
     }
 
-    .scrollable-container {
-      height: auto;
-      overflow-y: auto;
-      display: block;
+    body.fixed {
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
     }
   </style>
+
+  <!-- knihovna pro responsivní mapy -->
+  <script src="https://unpkg.com/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
 </head>
-<body class="fixed-container">
+<body class="fixed">
 
   <img src="mobilni-bankovnictvi.jpg" usemap="#mapa" id="mainImage">
 
   <map name="mapa">
-    <!-- přes tlačítko „Historie“ -->
     <area shape="rect" coords="1050,490,1150,530" href="#" title="Historie EUR" onclick="changeToScrollableImage('vypis.jpg'); return false;">
   </map>
 
@@ -46,15 +47,20 @@
     function changeToScrollableImage(newSrc) {
       const img = document.getElementById("mainImage");
 
-      // nastavíme nový obrázek
+      // změna obrázku na výpis
       img.src = newSrc;
 
-      // změníme režim stránky ze statického na scrollovatelný
-      document.body.className = "scrollable-container";
+      // přepnutí režimu těla na scrollovatelný
+      document.body.classList.remove("fixed");
+      document.body.classList.add("scrollable");
 
-      // odstraníme mapu (už ji nepotřebujeme na výpise)
+      // odstraníme mapu (už nebude potřeba)
       img.removeAttribute("usemap");
     }
+
+    window.onload = function () {
+      imageMapResize();
+    };
   </script>
 
 </body>
