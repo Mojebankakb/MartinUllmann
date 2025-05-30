@@ -15,7 +15,7 @@
 
     img {
       width: 100%;
-      max-width: 2828px; /* originální šířka */
+      max-width: 2828px;
       height: auto;
       border: 2px solid #ccc;
       border-radius: 20px;
@@ -30,9 +30,9 @@
   <!-- OBRÁZEK s mapou -->
   <img src="mobilni-bankovnictvi.jpg" usemap="#mapa" id="mainImage">
 
-  <!-- MAPA s jednou klikací oblastí -->
+  <!-- MAPA s upravenou menší oblastí -->
   <map name="mapa">
-    <area shape="rect" coords="0,0,1414,1444" href="#" title="Klikni pro výpis" onclick="changeImage('vypis.jpg'); return false;">
+    <area shape="rect" coords="1200,800,1350,870" href="#" title="Klikni pro výpis" onclick="changeImage('vypis.jpg'); return false;">
   </map>
 
   <script>
@@ -41,7 +41,7 @@
     }
 
     window.onload = function () {
-      imageMapResize(); // zajistí správné měřítko při zmenšení obrázku
+      imageMapResize();
     };
   </script>
 
