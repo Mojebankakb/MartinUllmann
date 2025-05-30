@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mobilní bankovnictví</title>
+  <title>Mobilní bankovnictví – náhled</title>
   <style>
     body {
       margin: 0;
       background-color: #f0f0f0;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      padding: 40px;
+      align-items: center;
+      height: 100vh;
     }
 
     img {
@@ -25,19 +25,7 @@
 </head>
 <body>
 
-  <!-- Výchozí obrázek -->
-  <img src="mobilni-bankovnictvi.jpg" usemap="#image-map" id="mainImage">
-
-  <map name="image-map">
-    <!-- Opravená klikací oblast (např. 150×70 px) -->
-    <area shape="rect" coords="1200,800,1350,870" href="#" onclick="changeImage('vypis.jpg'); return false;">
-  </map>
-
-  <script>
-    function changeImage(newSrc) {
-      document.getElementById("mainImage").src = newSrc;
-    }
-  </script>
+  <img src="mobilni-bankovnictvi.jpg" alt="Mobilní bankovnictví">
 
 </body>
 </html>
