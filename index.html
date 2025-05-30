@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mobilní bankovnictví – náhled</title>
+  <title>Mobilní bankovnictví</title>
   <style>
     body {
       margin: 0;
       background-color: #f0f0f0;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      align-items: flex-start;
+      padding: 40px;
     }
 
     img {
@@ -25,11 +25,12 @@
 </head>
 <body>
 
-  <img src="mobilni-bankovnictvi.jpg" alt="Mobilní bankovnictví" usemap="#mapa" id="mainImage">
+  <!-- Výchozí obrázek -->
+  <img src="mobilni-bankovnictvi.jpg" usemap="#image-map" id="mainImage">
 
-  <map name="mapa">
-    <!-- Klikací oblast přes tlačítko "Historie" u účtu G2.EUR -->
-    <area shape="rect" coords="1080,570,1250,630" href="#" onclick="changeImage('vypis.jpg'); return false;">
+  <map name="image-map">
+    <!-- Opravená klikací oblast (např. 150×70 px) -->
+    <area shape="rect" coords="1200,800,1350,870" href="#" onclick="changeImage('vypis.jpg'); return false;">
   </map>
 
   <script>
