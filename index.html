@@ -3,35 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mobilní bankovnictví</title>
+  <title>Mobilní bankovnictví fullscreen</title>
   <style>
-    body {
+    html, body {
       margin: 0;
-      padding: 40px;
-      background: #f0f0f0;
-      display: flex;
-      justify-content: center;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
     }
 
     img {
-      width: 100%;
-      max-width: 2828px;
-      height: auto;
-      border: 2px solid #ccc;
-      border-radius: 20px;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
     }
   </style>
 
-  <!-- knihovna pro responsivní obrazovou mapu -->
   <script src="https://unpkg.com/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
 </head>
 <body>
 
-  <!-- OBRÁZEK s mapou -->
   <img src="mobilni-bankovnictvi.jpg" usemap="#mapa" id="mainImage">
 
-  <!-- MAPA s upravenou menší oblastí -->
   <map name="mapa">
+    <!-- Klikací oblast přesně umístěná podle původního rozměru -->
     <area shape="rect" coords="1200,800,1350,870" href="#" title="Klikni pro výpis" onclick="changeImage('vypis.jpg'); return false;">
   </map>
 
@@ -40,7 +36,7 @@
       document.getElementById("mainImage").src = newSrc;
     }
 
-    window.onload = function () {
+    window.onload = () => {
       imageMapResize();
     };
   </script>
