@@ -40,9 +40,13 @@
 
   <img src="mobilni-bankovnictvi.jpg" usemap="#mapa" id="mainImage">
 
-  <map name="mapa">
-    <area shape="rect" coords="1254,819,1314,849" href="#" title="Historie EUR" onclick="changeImage('vypis.jpg'); return false;">
-  </map>
+<map name="mapa">
+  <!-- Oblast pro výpis (zůstává) -->
+  <area shape="rect" coords="1254,819,1314,849" href="#" title="Výpis" onclick="changeImage('vypis.jpg'); return false;">
+
+  <!-- Nová oblast pro platbu (9 cm vlevo) -->
+  <area shape="rect" coords="831,814,950,860" href="#" title="Platba" onclick="changeImage('platba.jpg'); return false;">
+</map>
 
   <script>
     function changeImage(newSrc) {
