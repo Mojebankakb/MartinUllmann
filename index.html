@@ -11,54 +11,46 @@
       background: #f0f0f0;
       height: 100%;
       width: 100%;
-    }
-
-    body.fixed {
-      overflow: hidden; /* žádné scrollování u prvního obrázku */
-    }
-
-    body.scrollable {
-      overflow-y: auto; /* povolíme scroll pro druhý obrázek */
+      overflow-x: hidden;
     }
 
     #mainImage {
-      width: 100vw;     /* obrázek vyplní šířku obrazovky */
-      height: 100vh;    /* obrázek vyplní výšku obrazovky */
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       display: block;
     }
 
-    body.scrollable #mainImage {
-      height: auto;     /* umožní obrázku scrollovat, když je vysoký */
-      object-fit: unset;
+    #extraImage {
+      display: none;
+      width: 100vw;
+      height: auto;
     }
   </style>
 
   <script src="https://unpkg.com/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
 </head>
-<body class="fixed">
+<body>
 
   <img src="mobilni-bankovnictvi.jpg" usemap="#mapa" id="mainImage">
 
-<map name="mapa">
-  <!-- Oblast pro výpis -->
-  <area shape="rect" coords="1254,819,1314,849" href="#" title="Výpis" onclick="changeImage('vypis.jpg'); return false;">
+  <map name="mapa">
+    <area shape="rect" coords="1254,819,1314,849" href="#" title="Výpis" onclick="replaceMainImage('vypis.jpg'); return false;">
+    <area shape="rect" coords="1170,814,1289,860" href="#" title="Platba" onclick="showExtraImage(); return false;">
+  </map>
 
-  <!-- Oblast pro platbu -->
-  <area shape="rect" coords="1170,814,1289,860" href="#" title="Platba" onclick="changeImage('platba.jpg'); return false;">
-</map>
+  <img src="platba.jpg" id="extraImage" alt="Platba">
 
   <script>
-    function changeImage(newSrc) {
+    function replaceMainImage(newSrc) {
       const img = document.getElementById("mainImage");
       img.src = newSrc;
-
-      // umožní scrollování jen pro druhý obrázek
-      document.body.classList.remove("fixed");
-      document.body.classList.add("scrollable");
-
-      // odstraníme mapu, aby nevadila
       img.removeAttribute("usemap");
+    }
+
+    function showExtraImage() {
+      const extra = document.getElementById("extraImage");
+      extra.style.display = "block";
     }
 
     window.onload = function () {
